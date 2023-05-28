@@ -1,0 +1,44 @@
+#body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: gray;
+}
+
+#clock-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #A3C4BC;
+}
+
+.elements {
+    margin-right: 20px;
+    font-size: 96px;
+    font-weight: 700;
+}
+
+#pause-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+button:hover {
+    cursor: pointer;
+}

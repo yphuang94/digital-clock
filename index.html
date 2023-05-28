@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="calculateTime()">
+    <div id="body-container">
+        <div id="clock-container">
+            <div class="elements" id="day"></div>
+            <div class="elements" id="hour"></div>
+            <div class="elements" >:</div>
+            <div class="elements" id="minute"></div>
+            <div class="elements" >:</div>
+            <div class="elements" id="second"></div>
+            <div class="elements" id="dayNight"></div>
+        </div>
+        <div id="pause-container">
+            <button class="pause" onclick="pause()">||</button>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        let snapshotTime = "";
+        let pauseToggle = 0;
+
+        function pause() {
+            if (pauseToggle == 0) {
+                pauseToggle = 1;
+            } else {
+                pauseToggle = 0;
+            }
+
+            if (pauseToggle == 1) {
+                clearInterval(timeRefresh);
+                document.getElementById("clock-container").style.color = "#F49D6E"
+                document.querySelector(".pause").style.background = "#F49D6E"
+            } else {
+                timeRefresh = setInterval(calculateTime, 500);
+            }
+        }
+
+        function calculateTime() {
+            let time = new Date();
+
+            let dayArr = ["SUN", "MON", "TUES", "WED", "THURS", "FRI", "SAT"];
+            let day = time.getDay();
+            let hour = time.getHours();
+            let minute = time.getMinutes();
+            let second = time.getSeconds();
+            let dayNight = "";
+
+            day = dayArr[day];
+            
+            if (time.getHours() >= 12) {
+                 dayNight = "PM";
+            } else {
+                dayNight = "AM";
+            }
+
+            hour = hour % 12; //modulus to convert hours from military time
+
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+
+            if (second < 10) {
+                second = "0" + second;
+            }
+
+            document.getElementById("day").innerHTML = day;
+            document.getElementById("hour").innerHTML = hour;
+            document.getElementById("minute").innerHTML = minute;
+            document.getElementById("second").innerHTML = second;
+            document.getElementById("dayNight").innerHTML = dayNight;
+
+            snapshotTime = `${day} ${hour} : ${minute} : ${second} ${dayNight}`
+
+            document.getElementById("clock-container").style.color = "#A3C4BC"
+            document.querySelector(".pause").style.background = "white"
+        }
+        
+        let timeRefresh = setInterval(calculateTime, 1000);
+
+    </script>
+</body>
+</html>
