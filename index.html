@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Clock</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body onload="calculateTime()">
     <div id="body-container">
         <div id="clock-container">
             <div class="elements" id="day"></div>
             <div class="elements" id="hour"></div>
-            <div class="elements" >:</div>
+            <div class="elements">:</div>
             <div class="elements" id="minute"></div>
-            <div class="elements" >:</div>
+            <div class="elements">:</div>
             <div class="elements" id="second"></div>
             <div class="elements" id="dayNight"></div>
         </div>
-        <div id="pause-container">
-            <button class="pause" onclick="pause()">||</button>
+        <div id="pause-container" onclick="pause()">
+            <i class="fa-solid fa-pause"></i>
         </div>
     </div>
     
@@ -38,8 +39,6 @@
 
             if (pauseToggle == 1) {
                 clearInterval(timeRefresh);
-                document.getElementById("clock-container").style.color = "#F49D6E"
-                document.querySelector(".pause").style.background = "#F49D6E"
             } else {
                 timeRefresh = setInterval(calculateTime, 500);
             }
@@ -86,7 +85,6 @@
             snapshotTime = `${day} ${hour} : ${minute} : ${second} ${dayNight}`
 
             document.getElementById("clock-container").style.color = "#A3C4BC"
-            document.querySelector(".pause").style.background = "white"
         }
         
         let timeRefresh = setInterval(calculateTime, 1000);
