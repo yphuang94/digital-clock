@@ -5,7 +5,7 @@ html { /*remove bounce effect on scrolling*/
 
 body { /*remove default margin from body element*/
     margin: 0px;
-    
+    font-family: 'Share Tech Mono', monospace;
 }
 
 #body-container {
