@@ -29,6 +29,7 @@
     <script>
         let snapshotTime = "";
         let pauseToggle = 0;
+        let pauseButton = document.querySelector("i");
 
         function pause() {
             if (pauseToggle == 0) {
@@ -39,7 +40,8 @@
 
             if (pauseToggle == 1) {
                 clearInterval(timeRefresh);
-                //switch to play class
+                pauseButton.classList.remove("fa-solid");
+                pauseButton.classList.remove("fa-pause");
             } else {
                 timeRefresh = setInterval(calculateTime, 500);
                 //switch back to pause class
