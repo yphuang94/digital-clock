@@ -1,10 +1,19 @@
+html { /*remove bounce effect on scrolling*/
+    overflow: hidden;
+    height: 100%;
+}
+
+body { /*remove default margin from body element*/
+    margin: 0px;
+}
+
 #body-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: gray;
+    background: rgb(52, 51, 51);
 }
 
 #clock-container {
@@ -17,7 +26,6 @@
 .elements {
     margin-right: 40px;
     font-size: 96px;
-    font-weight: 700;
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #A3C4BC, 0 0 20px #A3C4BC, 0 0 25px #A3C4BC, 0 0 30px #A3C4BC, 0 0 35px #A3C4BC;
 }
 
@@ -30,20 +38,5 @@
     width: 100px;
     border-radius: 5px;
     background-color: white;
-    opacity: .3;
 }
 
-button {
-    width: 100px;
-    height: 40px;
-    background: white;
-    border: none;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    font-size: 30px;
-    font-weight: 900;
-}
-
-button:hover {
-    cursor: pointer;
-}

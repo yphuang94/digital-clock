@@ -39,8 +39,10 @@
 
             if (pauseToggle == 1) {
                 clearInterval(timeRefresh);
+                //switch to play class
             } else {
                 timeRefresh = setInterval(calculateTime, 500);
+                //switch back to pause class
             }
         }
 
