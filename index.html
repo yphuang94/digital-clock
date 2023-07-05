@@ -8,8 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body onload="calculateTime()">
-    <div id="body-container">
+    <main id="body-container">
+        <nav>
+            <div id="pause-container" onclick="pause()">
+                <i class="fa-solid fa-pause"></i>
+            </div>
+        </nav>
         <div id="clock-container">
             <div class="elements" id="day"></div>
             <div class="elements" id="hour"></div>
@@ -19,34 +25,11 @@
             <div class="elements" id="second"></div>
             <div class="elements" id="dayNight"></div>
         </div>
-        <div id="pause-container" onclick="pause()">
-            <i class="fa-solid fa-pause"></i>
-        </div>
-    </div>
-    
-    
+    </main>
 
     <script>
-        let snapshotTime = "";
         let pauseToggle = 0;
         let pauseButton = document.querySelector("i");
-
-        function pause() {
-            if (pauseToggle == 0) {
-                pauseToggle = 1;
-            } else {
-                pauseToggle = 0;
-            }
-
-            if (pauseToggle == 1) {
-                clearInterval(timeRefresh);
-                pauseButton.classList.remove("fa-solid");
-                pauseButton.classList.remove("fa-pause");
-            } else {
-                timeRefresh = setInterval(calculateTime, 500);
-                //switch back to pause class
-            }
-        }
 
         function calculateTime() {
             let time = new Date();
@@ -85,10 +68,32 @@
             document.getElementById("minute").innerHTML = minute;
             document.getElementById("second").innerHTML = second;
             document.getElementById("dayNight").innerHTML = dayNight;
+        }
 
-            snapshotTime = `${day} ${hour} : ${minute} : ${second} ${dayNight}`
+        function pause() {
+            if (pauseToggle == 0) {
+                pauseToggle = 1;
+            } else {
+                pauseToggle = 0;
+            }
 
-            document.getElementById("clock-container").style.color = "#A3C4BC"
+            if (pauseToggle == 1) {
+                clearInterval(timeRefresh);
+                setPlay();
+            } else {
+                setPause();
+                timeRefresh = setInterval(calculateTime, 500);
+            }
+        }
+
+        function setPlay() {
+            pauseButton.classList.remove("fa-pause");
+            pauseButton.classList.add("fa-play");
+        }
+
+        function setPause() {
+            pauseButton.classList.remove("fa-play");
+            pauseButton.classList.add("fa-pause");
         }
         
         let timeRefresh = setInterval(calculateTime, 1000);

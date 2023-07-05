@@ -5,6 +5,7 @@ html { /*remove bounce effect on scrolling*/
 
 body { /*remove default margin from body element*/
     margin: 0px;
+    
 }
 
 #body-container {
@@ -13,30 +14,40 @@ body { /*remove default margin from body element*/
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: rgb(52, 51, 51);
+    background: radial-gradient(
+        circle closest-corner at center 400px,
+        #1c2a42,
+        black 100%
+    ) no-repeat;
 }
 
 #clock-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    color: #087F8C;
+    height: 90%;
 }
 
 .elements {
     margin-right: 40px;
     font-size: 96px;
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #A3C4BC, 0 0 20px #A3C4BC, 0 0 25px #A3C4BC, 0 0 30px #A3C4BC, 0 0 35px #A3C4BC;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #087F8C, 0 0 20px #087F8C, 0 0 25px #087F8C, 0 0 30px #A3C4BC, 0 0 35px #087F8C;
+}
+
+nav {
+    margin-left: auto;
+    margin-right: 20px;
 }
 
 #pause-container {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 40px;
     width: 100px;
     border-radius: 5px;
     background-color: white;
+    opacity: .5;
 }
 
